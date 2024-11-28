@@ -1,6 +1,11 @@
-import { mutiplyWords } from './utils/multiply-words.ts';
-
 if (import.meta.main) {
-  const multipliedWords = mutiplyWords(Deno.args[0].trim(), Number.parseInt(Deno.args[1].trim()));
-  console.log(multipliedWords);
+  Deno.serve((_req_) => {
+    (async () => {
+      for await (const el of Deno.readDir('.')) {
+        console.log(el.name);
+      }
+    })();
+    const hello = new Response('Hello, Stackie!');
+    return hello;
+  });
 }
